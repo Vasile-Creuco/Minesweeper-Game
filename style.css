@@ -1,0 +1,79 @@
+body {
+	background-color: antiquewhite;
+	text-align: center;
+}
+
+#table {
+	width: 500px;
+	height: 500px;
+	background-color: lightseagreen;
+	border: 5px solid black;
+
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#table div {
+	width: 48px;
+	height: 48px;
+	border: 1px solid white;
+
+	/*text*/
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.tile-clicked {
+	background: gray;
+}
+
+button {
+	background-color: lightseagreen;
+	font-size: 20px;
+	border: none;
+	width: 90px;
+	height: 40px;
+}
+
+.number1 {
+	color: red;
+}
+
+.number2 {
+	color: blue;
+}
+
+.number3 {
+	color: green;
+}
+
+.number4 {
+	color: orangered;
+}
+
+.number5 {
+	color: crimson;
+}
+
+.number6 {
+	color: brown;
+}
+
+.number7 {
+	color: lime;
+}
+
+.number8 {
+	color: fuchsia;
+}
+
+.number9 {
+	color: darkred;
+}
+
+.number10 {
+	color: teal;
+}
