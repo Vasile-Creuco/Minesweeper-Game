@@ -101,18 +101,12 @@ function checkMines(r, c) {
     clickedMines += 1;
     let minesFound = 0;
 
-    minesFound += checkCell(r, c); //currently
-    minesFound += checkCell(r, c + 1); //left
-    minesFound += checkCell(r, c - 1); //right
-
-    minesFound += checkCell(r - 1, c); //top
-    minesFound += checkCell(r - 1, c + 1); //top right
-    minesFound += checkCell(r - 1, c - 1); //top left
-
-    minesFound += checkCell(r + 1, c); //bottom
-    minesFound += checkCell(r + 1, c + 1); // bottom right
-    minesFound += checkCell(r + 1, c - 1); //bottom left
-
+    for (let i = r - 1; i <= r + 1; ++i) {
+        for (let j = c - 1; j <= c + 1; ++j) {
+            minesFound += checkCell(i, j);
+        }
+    }
+    
     if (minesFound > 0) {
         table[r][c].innerText = minesFound;
         table[r][c].classList.add("number" + minesFound.toString());
