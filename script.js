@@ -1,10 +1,10 @@
-var table = [];
-var rows = 10;
-var columns = 10;
-var mines_count = 10;
-var GameOver = false;
-var locationMines = [];
-var clickedMines = 0;
+let table = [];
+let rows = 10;
+let columns = 10;
+let mines_count = 10;
+let GameOver = false;
+let locationMines = [];
+let clickedMines = 0;
 
 window.onload = function () {
     startGame();
@@ -14,7 +14,7 @@ function restartGame() {
     window.location.reload();
 }
 
-//add mines in table
+//add mines in board
 function addMines() {
     let mines = mines_count;
     while (mines > 0) {
@@ -117,17 +117,11 @@ function checkMines(r, c) {
         table[r][c].innerText = minesFound;
         table[r][c].classList.add("number" + minesFound.toString());
     } else {
-        checkMines(r, c); //currently
-        checkMines(r, c + 1); //left
-        checkMines(r, c - 1); //right
-
-        checkMines(r - 1, c); //top
-        checkMines(r - 1, c + 1); //top right
-        checkMines(r - 1, c - 1); //top left
-
-        checkMines(r + 1, c); //bottom
-        checkMines(r + 1, c + 1); // bottom right
-        checkMines(r + 1, c - 1); //bottom left
+        for (let i = r - 1; i <= r + 1; ++i) {
+            for (let j = c - 1; j <= c + 1; ++j) {
+                checkMines(i, j);
+            }
+        }
     }
     if (clickedMines == rows * columns - mines_count) {
         document.getElementById('mines-count').innerText = "Game Won";
